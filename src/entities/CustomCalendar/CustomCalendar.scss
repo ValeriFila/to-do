@@ -1,0 +1,63 @@
+@import 'react-big-calendar/lib/sass/styles';
+
+.calendar-body {
+    width: 100%;
+
+    .rbc-calendar {
+        font: var(--font-m);
+
+        .rbc-toolbar {
+            .rbc-toolbar-label {
+                font: var(--font-l);
+            }
+
+            .rbc-btn-group {
+                display: flex;
+                flex-direction: row;
+                gap: 0.5rem;
+            }
+
+            .rbc-btn-group button {
+                cursor: pointer;
+            }
+
+            .rbc-btn-group button:nth-child(1) {
+                display: none;
+            }
+
+            .rbc-btn-group button:nth-child(2) {
+                border-radius: 5px;
+            }
+
+            .rbc-btn-group button:nth-child(3) {
+                border-radius: 5px;
+            }
+        }
+
+        .rbc-event {
+            background-color: var(--primary-color);
+        }
+
+        .rbc-btn-group:last-child {
+            display: none;
+        }
+
+        .rbc-event-content {
+            font: var(--font-m);
+        }
+
+        .rbc-button-link {
+            font: var(--font-m);
+        }
+
+        .rbc-day-bg:hover {
+            cursor: pointer;
+            background-color: #e6e6e6;
+        }
+
+    }
+
+
+}
+
+
