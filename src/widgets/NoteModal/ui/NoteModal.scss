@@ -14,8 +14,21 @@
         display: block;
         width: 85vw;
         height: 75vh;
+        overflow-y: auto;
         background: #b3c7ff;
         border-radius: 10px;
+
+        &::-webkit-scrollbar {
+            width: 8px;               /* ширина scrollbar */
+        }
+        &::-webkit-scrollbar-track {
+            background: #b3c7ff;        /* цвет дорожки */
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(24, 75, 128, 0.11);    /* цвет плашки */
+            border-radius: 20px;       /* закругления плашки */
+            border: #b3c7ff;  /* padding вокруг плашки */
+        }
     }
 
     &__close-button {

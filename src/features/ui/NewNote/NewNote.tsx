@@ -4,6 +4,7 @@ import { CreationCard } from '@/entities/CreationCard/CreationCard.tsx'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 
 export const NewNote = () => {
+    const date = useAppSelector((state) => state.date.date)
     const dispatch = useAppDispatch()
     const notes = useAppSelector((state) => state.notes.lsNotes)
     const [note, setNote] = useState('')
@@ -26,8 +27,8 @@ export const NewNote = () => {
                 [id]: {
                     id,
                     title: note,
-                    start: new Date(),
-                    end: new Date(new Date().setHours(new Date().getHours() + 1)),
+                    start: date,
+                    end: date,
                     fulfilled: false,
                 },
             }))

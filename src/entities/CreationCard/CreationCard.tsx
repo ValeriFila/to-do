@@ -1,6 +1,7 @@
 import React from 'react'
 import './CreationCard.scss'
 import { Button } from '@/shared/ui/Button/Button'
+import CreateButton from '@/shared/assets/icons/create-note-svgrepo-com.svg'
 
 interface CreationCardProps {
     remaining: string
@@ -30,7 +31,7 @@ export const CreationCard = (props: CreationCardProps) => {
                 <Button
                     onClick={onClick}
                 >
-                    СОЗДАТЬ
+                    <CreateButton />
                 </Button>
             </div>
         </div>

@@ -1,35 +1,14 @@
-import { NoteModal } from '@/widgets/NoteModal/ui/NoteModal.tsx'
 import { useEffect, useMemo, useState } from 'react'
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
+import { setDate } from '@/features/model/dateToCreateNote.ts'
+import { NoteModal } from '@/widgets/NoteModal/ui/NoteModal.tsx'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import 'moment/locale/nb'
 import './CustomCalendar.scss'
 
-// const myEvents = [
-//     {
-//         title: 'Сделать пет-проект...',
-//         start: new Date(),
-//         end: new Date(new Date().setHours(new Date().getHours() + 2)),
-//     },
-//     {
-//         title: 'Сделать пет-проект...',
-//         start: new Date(),
-//         end: new Date(new Date().setHours(new Date().getHours() + 3)),
-//     },
-//     {
-//         title: 'Сделать пет-проект...',
-//         start: new Date(),
-//         end: new Date(new Date().setHours(new Date().getHours() + 4)),
-//     },
-//     {
-//         title: 'Убрать дома',
-//         start: new Date(new Date().setDate(new Date().getDate() + 1)),
-//         end: new Date(new Date().setHours(new Date().getHours() + 1)),
-//     }
-// ]
-
 export const CustomCalendar = () => {
+    const dispatch = useAppDispatch()
     const notes  = useAppSelector((store) => store.notes.lsNotes)
     const [isDetailedModal, setDetailedModal] = useState<boolean>(false)
     const [currentSlot, setCurrentSlot] = useState<Date[]>([])
@@ -45,10 +24,10 @@ export const CustomCalendar = () => {
     const onSelectSlot = (slot: { action: string, slots: Date[] }) => {
         setDetailedModal(true)
         setCurrentSlot(slot.slots)
+        dispatch(setDate(slot.slots[0]))
     }
 
     const myEvents = useMemo(() => {
-        console.log('notes', notes)
         if (notes) return Object.values(notes)
 
         return []

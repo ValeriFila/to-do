@@ -16,14 +16,17 @@ const Calendar = ({ className }: CalendarProps) => {
     return (
         <div className={classNames('Calendar', {}, [className!])}>
             <div className='Calendar__page-name'>
-                <CalendarIcon />
                 <div
-                    className={classNames('Calendar__label')}
+                    className={classNames('Calendar__page-name__label')}
                 >
-                    {t('To-Do Лист')}
+                    <CalendarIcon />
+                    <div
+                        className={classNames('Calendar__page-name__label__text')}
+                    >
+                        {t('To-Do Лист')}
+                    </div>
                 </div>
                 <ToggleLanguage />
-                <ToggleTheme />
             </div>
             <CustomCalendar />
         </div>

@@ -3,10 +3,12 @@ import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import './NoteModal.scss'
 import { Button } from '@/shared/ui/Button/Button.tsx'
 import { NotesSection } from '@/widgets/NotesSection/NotesSection.tsx'
+import { IoMdClose } from 'react-icons/io'
 
-interface NoteModalProps {
+export interface NoteModalProps {
     open: boolean,
     notes: {
+        id: number
         title: string
         start: Date
         end: Date
@@ -49,17 +51,10 @@ export const NoteModal = (props: NoteModalProps) => {
                                 type='button'
                                 onClick={onClose}
                             >
-                                ❌
+                                <IoMdClose
+                                    size={30}
+                                />
                             </Button>
-                        </div>
-                        <div>
-                            {getCurrentEvents().map((note) => (
-                                <p
-                                    key={note.title + note.end}
-                                >
-                                    {note.title}
-                                </p>
-                            ))}
                         </div>
                         <NotesSection />
                     </div>

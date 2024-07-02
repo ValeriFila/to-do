@@ -6,14 +6,12 @@ import { CreatedNoteCard } from '@/entities/CreatedNoteCard/CreatedNoteCard.tsx'
 interface CreatedNoteProps {
     id: string
     title: string
-    start: string
 }
 
 export const CreatedNote = (props: CreatedNoteProps) => {
     const {
         id,
         title,
-        start,
     } = props
 
     const dispatch = useAppDispatch()
@@ -39,7 +37,6 @@ export const CreatedNote = (props: CreatedNoteProps) => {
             cardBody={{
                 id,
                 noteText: title,
-                creationDate: start,
             }}
             onClickButton={() => removeNote(id)}
             onChangeCheckbox={() => fulfillNote(id)}

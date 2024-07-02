@@ -1,21 +1,36 @@
+import moment from 'moment/moment'
 import React, { useMemo } from 'react'
 import { useAppSelector } from '@/shared/lib/hooks'
 import { CreatedNote, NewNote } from '@/features'
 import './NotesSection.scss'
 
-type Note = {
-    id: string
+interface Note {
+    id: number
     title: string
     start: Date
+    end: Date
     fulfilled: boolean
 }
 
 export const NotesSection = () => {
     const notes  = useAppSelector((state) => state.notes.lsNotes)
+    const date = useAppSelector((state) => state.date.date)
+
+    const getCurrentEvents = () => {
+        return Object.values(notes).reduce((accum: Record<number, Note>, item) => {
+            if (moment(date).isBetween(item.start, item.end)) {
+                accum[item.id] = item
+            } else if (new Date(item.start).toLocaleDateString() === new Date(date).toLocaleDateString()) {
+                accum[item.id] = item
+            }
+
+            return accum
+        }, {})
+    }
+
     const createdNotes = useMemo(() => {
         if (notes) {
-            const arrayNotes: [string, Note][] = Object.entries(notes)
-            // console.log(arrayNotes)
+            const arrayNotes: [string, Note][] = Object.entries(getCurrentEvents())
 
             return arrayNotes.map((note, index) => {
                 const id = note[0]
@@ -26,7 +41,6 @@ export const NotesSection = () => {
                         key={`note_${index.toString()}`}
                         id={id}
                         title={noteBody.title}
-                        start={noteBody.start.getDate().toString()}
                     />
                 )
             })

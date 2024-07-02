@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 interface NotesState {
-    id: string,
+    id: number,
     title: string,
     start: Date,
     end: Date
