@@ -1,5 +1,6 @@
 {
   "name": "to-do",
+  "homepage": "https://ValeriFila.github.io/to-do",
   "imports": {
     "@/*": {
       "default": "./src/*",
@@ -43,7 +44,9 @@
     "lint:fix": "npx eslint --fix \"**/*.{js,jsx,ts,tsx}\"",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint --fix \"**/*.scss\"",
-    "unit": "jest -c ./config/jest/jest.config.ts"
+    "unit": "jest -c ./config/jest/jest.config.ts",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
