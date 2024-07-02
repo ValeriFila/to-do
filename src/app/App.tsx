@@ -1,14 +1,23 @@
 import './styles/index.scss'
-import React, { Suspense } from 'react'
+import { setNotes } from '@/features/model/notesSlice.ts'
+import { useAppDispatch } from '@/shared/lib/hooks'
+import React, { Suspense, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-import ErrorBoundary from '@/pages/ErrorBoundary/ui/ErrorBoundary.tsx'
 import { PageLoader } from '@/widgets/PageLoader'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useTheme } from '@/app/providers/ThemeProvider'
-import { Sidebar } from '@/widgets/Sidebar'
 
 export const App = () => {
     const { theme } = useTheme()
+    const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        console.log(localStorage.getItem('notes'))
+        if (localStorage.getItem('notes')) {
+            dispatch(setNotes({ ...JSON.parse(localStorage.getItem('notes')!) }))
+        }
+
+    }, [])
 
     return (
         <div

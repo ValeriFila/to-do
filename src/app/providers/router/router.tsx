@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { App } from '@/app/App'
+import { App } from '@/app/App.tsx'
 import {
     NotFoundPage,
     Calendar

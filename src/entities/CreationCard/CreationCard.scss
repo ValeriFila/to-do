@@ -1,0 +1,41 @@
+.create-note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    width: 300px;
+    min-width: 300px;
+    height: 180px;
+    border-radius: 5px;
+    background-color: rgb(24, 75, 128);
+    padding: 1rem;
+    gap: 1rem;
+    color: white;
+    word-break: break-all;
+
+    &__text-area {
+        text-align: left;
+        font-size: 1.4rem;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        resize: none;
+        color: white;
+        height: 100%;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+
+    &__bottom-part {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &__remaining {
+            font-size: 1.2rem;
+        }
+    }
+}

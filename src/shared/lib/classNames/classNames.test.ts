@@ -1,4 +1,4 @@
-import { classNames } from './classNames'
+import { classNames } from '@/shared/lib/classNames/classNames.ts'
 
 describe('classNamesTest', () => {
     test('Все значения пустые', () => {

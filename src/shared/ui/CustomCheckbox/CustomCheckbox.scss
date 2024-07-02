@@ -1,0 +1,11 @@
+$size: 2rem;
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    height: $size;
+    width: $size;
+    cursor: pointer;
+}

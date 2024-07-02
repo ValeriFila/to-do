@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react'
-import { classNames } from '../../lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import './Button.scss'
 
 export enum ThemeButton {
