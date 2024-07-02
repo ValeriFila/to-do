@@ -19,20 +19,22 @@
         border-radius: 10px;
 
         &::-webkit-scrollbar {
-            width: 8px;               /* ширина scrollbar */
+            width: 8px;
         }
+
         &::-webkit-scrollbar-track {
-            background: #b3c7ff;        /* цвет дорожки */
+            background: #b3c7ff;
         }
+
         &::-webkit-scrollbar-thumb {
-            background-color: rgba(24, 75, 128, 0.11);    /* цвет плашки */
-            border-radius: 20px;       /* закругления плашки */
-            border: #b3c7ff;  /* padding вокруг плашки */
+            background-color: rgba(24, 75, 128, 0.11);
+            border-radius: 20px;
+            border: #b3c7ff;
         }
     }
 
     &__close-button {
-        font: var(--font-m);
+        font: var(--font-s);
         position: relative;
         right: 0;
         text-align: right;

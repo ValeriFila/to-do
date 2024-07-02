@@ -39,3 +39,11 @@
         }
     }
 }
+
+@media (width <= 500px) {
+    .create-note {
+        width: 250px;
+        min-width: 250px;
+        height: 150px;
+    }
+}

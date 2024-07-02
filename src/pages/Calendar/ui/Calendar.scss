@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    transition: all 0.4s ease-in;
 
     &__page-name {
         display: flex;
@@ -25,5 +26,12 @@
                 font-weight: bold;
             }
         }
+    }
+}
+
+@media (width <= 500px) {
+    .Calendar__page-name__label__text {
+        font: var(--font-l);
+        font-weight: bold;
     }
 }
