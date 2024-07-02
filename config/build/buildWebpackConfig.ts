@@ -18,7 +18,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
         entry: paths.entry,
         output: {
             filename: '[name].[contenthash].js',
-            path: paths.dist,
+            path: paths.build,
             clean: true,
         },
         plugins: buildPlugins(options),

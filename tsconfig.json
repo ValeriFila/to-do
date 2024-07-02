@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./dist/",
+        "outDir": "./build/",
         "module": "ESNext",
         "target": "es5",
         "jsx": "react-jsx",
