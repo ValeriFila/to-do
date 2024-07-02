@@ -12,7 +12,6 @@ export const App = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        console.log(localStorage.getItem('notes'))
         if (localStorage.getItem('notes')) {
             dispatch(setNotes({ ...JSON.parse(localStorage.getItem('notes')!) }))
         }
