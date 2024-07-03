@@ -1,23 +1,30 @@
+import moment from 'moment'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import { useFetchDaysOffQuery } from '@/features/model/apiSlices/isDayOffApi/isDayOffApi.ts'
 import { setDate } from '@/features/model/storeSlices/dateToCreateNoteSlice.ts'
 import { CustomDayWrapper } from '@/features/ui/CustomDayWrapper/CustomDayWrapper.tsx'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import 'moment/locale/nb'
 import { CustomToolbar } from '@/widgets/CustomToolbar'
 import { NoteModal } from '@/widgets/NoteModal'
-import moment from 'moment'
-import { memo, useCallback, useEffect, useMemo, useState } from 'react'
-import { Calendar, momentLocalizer, ToolbarProps } from 'react-big-calendar'
+import { Calendar, DateCellWrapperProps, momentLocalizer, ToolbarProps } from 'react-big-calendar'
 import './CustomCalendar.scss'
 
 export const CustomCalendar = memo(() => {
     const dispatch = useAppDispatch()
     const notes  = useAppSelector((store) => store.notes.lsNotes)
     const lng = useAppSelector((state) => state.language.language)
+    const [actualDate, setActualDate] = useState<Date>(new Date())
     const [isDetailedModal, setDetailedModal] = useState<boolean>(false)
     const [currentSlot, setCurrentSlot] = useState<Date[]>([])
 
     moment.locale(lng)
     const localizer = momentLocalizer(moment)
+
+    const { data } = useFetchDaysOffQuery({
+        year: actualDate.getFullYear().toString(),
+        // month: (actualDate.getMonth() + 1).toString(),
+    })
 
     const onSelectSlot = useCallback((slot: { action: string, slots: Date[] }) => {
         setDetailedModal(true)
@@ -34,7 +41,10 @@ export const CustomCalendar = memo(() => {
     const components = () => {
         return {
             toolbar: (toolbar: ToolbarProps) => CustomToolbar(toolbar),
-            dateCellWrapper: CustomDayWrapper
+            dateCellWrapper: (props: DateCellWrapperProps) => CustomDayWrapper({
+                monthDaysStatus: data,
+                ...props
+            }),
         }
     }
 
@@ -52,6 +62,9 @@ export const CustomCalendar = memo(() => {
                 onDrillDown={() => {
                 }}
                 components={components()}
+                onNavigate={(newDate) => {
+                    setActualDate(newDate)
+                }}
                 startAccessor='start'
                 endAccessor='end'
                 style={{ height: 600 }}

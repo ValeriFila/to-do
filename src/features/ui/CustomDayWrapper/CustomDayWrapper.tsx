@@ -1,29 +1,27 @@
-import { useFetchDaysOffQuery } from '@/features/model/apiSlices/isDayOffApi/isDayOffApi.ts'
-import { classNames } from '@/shared/lib/classNames/classNames.ts'
+import moment from 'moment'
 import { DateCellWrapperProps } from 'react-big-calendar'
+import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import './CustomDayWrapper.scss'
 
-export const CustomDayWrapper = (props: DateCellWrapperProps) => {
+interface CustomDayWrapperProps extends DateCellWrapperProps {
+    monthDaysStatus?: string
+}
+
+export const CustomDayWrapper = (props: CustomDayWrapperProps) => {
     const {
         value,
+        monthDaysStatus
     } = props
 
-    const rbcToday = new Date(value).getDate().toString() +
-        new Date(value).getMonth().toString() +
-        new Date(value).getFullYear().toString() ===
-        new Date().getDate().toString() +
-        new Date().getMonth().toString() +
-        new Date().getFullYear().toString()
-
-    const response = useFetchDaysOffQuery({
-        year: value.getFullYear().toString(),
-        month: (value.getMonth() + 1).toString(),
-    })
+    const rbcToday = moment(value).isSame(new Date(), 'date')
 
     const isDayOff = () => {
-        const index = value.getDate() - 1
+        const index = moment(value).dayOfYear() - 1
 
-        if (response.data) return response.data[index] !== '0'
+        if (monthDaysStatus) {
+
+            return monthDaysStatus[index] !== '0'
+        }
 
         return false
     }
@@ -34,7 +32,7 @@ export const CustomDayWrapper = (props: DateCellWrapperProps) => {
             isDayOff: isDayOff(),
         })}
         >
-            
+
         </div>
     )
 }
