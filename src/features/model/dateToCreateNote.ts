@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 interface NotesSliceProps {
-    date: Date
+    date: string
 }
 
 const initialState: NotesSliceProps = {
-    date: new Date()
+    date: new Date().toISOString()
 }
 
 const notesSlice = createSlice({

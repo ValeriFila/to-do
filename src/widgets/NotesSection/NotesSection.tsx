@@ -7,8 +7,8 @@ import './NotesSection.scss'
 interface Note {
     id: number
     title: string
-    start: Date
-    end: Date
+    start: string
+    end: string
     fulfilled: boolean
 }
 

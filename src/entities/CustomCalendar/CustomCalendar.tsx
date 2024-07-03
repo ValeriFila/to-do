@@ -24,7 +24,7 @@ export const CustomCalendar = () => {
     const onSelectSlot = (slot: { action: string, slots: Date[] }) => {
         setDetailedModal(true)
         setCurrentSlot(slot.slots)
-        dispatch(setDate(slot.slots[0]))
+        dispatch(setDate(slot.slots[0].toISOString()))
     }
 
     const myEvents = useMemo(() => {
@@ -49,9 +49,7 @@ export const CustomCalendar = () => {
             {isDetailedModal &&
                 <NoteModal
                     open={isDetailedModal}
-                    notes={myEvents}
                     onClose={() => setDetailedModal(false)}
-                    slot={currentSlot[0]}
                 />
             }
         </div>

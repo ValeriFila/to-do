@@ -21,6 +21,15 @@
     font: var(--font-l);
 }
 
+.rbc-event-content {
+    min-height: auto;
+    line-height: normal;
+}
+
+.rbc-allday-cell {
+    display: none;
+}
+
 .rbc-btn-group {
     display: flex;
     flex-direction: row;
@@ -44,7 +53,13 @@
 }
 
 .rbc-event {
+    outline: none;
+    padding: 2px 4px;
     background-color: var(--primary-color);
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .rbc-btn-group:last-child {

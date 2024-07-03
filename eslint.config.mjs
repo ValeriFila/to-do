@@ -133,7 +133,8 @@ export default [
       camelcase: 1,
       'react/destructuring-assignment': 1,
       'jsx-a11y/mouse-events-have-key-events': 0,
-      'object-curly-newline': 0
+      'object-curly-newline': 0,
+      'react/display-name': 0
     }
   },
   {

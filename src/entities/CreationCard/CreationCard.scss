@@ -45,5 +45,21 @@
         width: 250px;
         min-width: 250px;
         height: 150px;
+
+        &__text-area {
+            text-align: left;
+            font: var(--font-s);
+            color: #000000;
+            height: 100%;
+            overflow: scroll;
+            text-overflow: ellipsis;
+        }
+
+        &__bottom-part {
+
+            &__remaining {
+                font: var(--font-s);
+            }
+        }
     }
 }

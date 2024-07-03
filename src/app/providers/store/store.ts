@@ -8,7 +8,7 @@ export const store = configureStore({
         language: switchLanguageReducer,
         notes: notesReducer,
         date: dateReducer
-    },
+    }
 })
 
 export type RootState = ReturnType<typeof store.getState>

@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next'
 import { ToggleLanguage } from '@/shared/ui/ToggleLanguage/ToggleLanguage.tsx'
-import { ToggleTheme } from '@/shared/ui/ToggleTheme/ToggleTheme.tsx'
 import { CustomCalendar } from '@/entities'
 import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import './Calendar.scss'

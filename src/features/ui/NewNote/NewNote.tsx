@@ -10,12 +10,13 @@ export const NewNote = memo(() => {
     const [note, setNote] = useState('')
     const [remain, setRemain] = useState(200)
 
-    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (e.target.value.length <= 200) {
             setNote(e.target.value)
             setRemain(200 - e.target.value.length)
         }
-    }
+    }, [note, remain])
+
     const createNote = useCallback(() => {
         if (note.trim().length > 0) {
             const id = Date.now()
@@ -36,7 +37,6 @@ export const NewNote = memo(() => {
     useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notes))
     }, [dispatch, notes, remain])
-
 
     return (
         <CreationCard
