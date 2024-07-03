@@ -2,7 +2,7 @@ import moment from 'moment/moment'
 import React, { memo, useCallback, useMemo } from 'react'
 import { useAppSelector } from '@/shared/lib/hooks'
 import { CreatedNote, NewNote } from '@/features'
-import './NotesSection.scss'
+import '@/widgets/NotesSection/ui/NotesSection.scss'
 
 interface Note {
     id: number

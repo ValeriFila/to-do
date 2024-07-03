@@ -1,5 +1,6 @@
-import { useContext } from 'react'
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../../ThemeProvider'
+import { setTheme } from '@/features/model/themeSlice'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import Theme from '@/shared/lib/types/themeType'
 
 interface UseThemeResult {
     theme?: Theme
@@ -7,14 +8,13 @@ interface UseThemeResult {
 }
 
 export const useTheme = (): UseThemeResult => {
-    const { theme, setTheme } = useContext(ThemeContext)
+    const dispatch = useAppDispatch()
+    const theme = useAppSelector((store) => store.theme.theme)
 
     const toggleTheme = () => {
-        if (setTheme) {
-            const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
-            setTheme(newTheme)
-            localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
-        }
+        const newTheme = theme === Theme.DARK ? Theme.WHITE : Theme.DARK
+        dispatch(setTheme(newTheme))
+        localStorage.setItem('theme', newTheme)
     }
 
     return {

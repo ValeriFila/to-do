@@ -1,0 +1,23 @@
+.CustomToolbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+    &__navigate {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+
+        &__label {
+            text-transform: capitalize;
+            font: var(--font-l);
+            color: var(--primary-event-color);
+        }
+
+        &__buttons {
+            display: flex;
+            gap: 1.5rem;;
+        }
+    }
+}

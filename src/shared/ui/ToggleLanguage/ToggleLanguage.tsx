@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import Lang from '../../assets/icons/book-dictionary-education-svgrepo-com.svg'
+import { IoLanguageOutline } from "react-icons/io5";
 import { setLanguage } from '@/features/model/switchLanguageSlice.ts'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { classNames } from '@/shared/lib/classNames/classNames'
@@ -25,7 +25,10 @@ export const ToggleLanguage = ({ className }: ToggleLanguageProps) => {
             onClick={toggle}
             className={classNames('', {}, [className!])}
         >
-            <Lang />
+            <IoLanguageOutline
+                color={'var(--primary-event-color)'}
+                size={'3rem'}
+            />
         </Button>
     )
 }

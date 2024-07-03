@@ -3,7 +3,7 @@ import { IoMdClose } from 'react-icons/io'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import './NoteModal.scss'
 import { Button } from '@/shared/ui/Button/Button'
-import { NotesSection } from '@/widgets/NotesSection/NotesSection'
+import { NotesSection } from '@/widgets/NotesSection'
 import { CustomPopupWrapper } from '@/shared/ui/CustomPopupWrapper/CustomPopupWrapper'
 
 export interface NoteModalProps {

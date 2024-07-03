@@ -24,7 +24,14 @@
             &__text {
                 font: var(--font-xl);
                 font-weight: bold;
+                color: var(--primary-event-color);
             }
+        }
+
+        &__settings {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
         }
     }
 }

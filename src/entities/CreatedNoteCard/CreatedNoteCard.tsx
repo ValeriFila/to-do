@@ -2,11 +2,11 @@ import './CreatedNoteCard.scss'
 import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import { Button } from '@/shared/ui/Button/Button'
 import { CustomCheckbox } from '@/shared/ui/CustomCheckbox/CustomCheckbox'
-import DeleteButton from '@/shared/assets/icons/delete-2-svgrepo-com.svg'
+import { MdDeleteOutline } from "react-icons/md";
 
 interface NoteCardProps {
     cardBody: {
-        id: string,
+        id: number,
         noteText: string,
     }
     onClickButton: () => void
@@ -24,7 +24,7 @@ export const CreatedNoteCard = (props: NoteCardProps) => {
 
     return (
         <div
-            id={cardBody.id}
+            id={cardBody.id.toString()}
             className='note'
         >
             <p className={classNames('note__text', { 'note__text--crossed': fulfilled } )}>{cardBody.noteText}</p>
@@ -33,7 +33,9 @@ export const CreatedNoteCard = (props: NoteCardProps) => {
                     <Button
                         onClick={onClickButton}
                     >
-                        <DeleteButton />
+                        <MdDeleteOutline
+                            size={'2rem'}
+                        />
                     </Button>
                     <CustomCheckbox
                         onChange={onChangeCheckbox}

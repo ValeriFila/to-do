@@ -1,7 +1,7 @@
 import React from 'react'
 import './CreationCard.scss'
 import { Button } from '@/shared/ui/Button/Button'
-import CreateButton from '@/shared/assets/icons/create-note-svgrepo-com.svg'
+import { RiStickyNoteAddLine } from "react-icons/ri";
 
 interface CreationCardProps {
     remaining: string
@@ -31,7 +31,9 @@ export const CreationCard = (props: CreationCardProps) => {
                 <Button
                     onClick={onClick}
                 >
-                    <CreateButton />
+                    <RiStickyNoteAddLine
+                        size={'2rem'}
+                    />
                 </Button>
             </div>
         </div>

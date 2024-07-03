@@ -6,7 +6,7 @@
         width: 85vw;
         height: 75vh;
         overflow-y: auto;
-        background: #b3c7ff;
+        background: #afafaf;
         border-radius: 10px;
 
         &::-webkit-scrollbar {
@@ -14,13 +14,13 @@
         }
 
         &::-webkit-scrollbar-track {
-            background: #b3c7ff;
+            background: #a1a1a1;
         }
 
         &::-webkit-scrollbar-thumb {
-            background-color: rgba(24, 75, 128, 0.11);
+            background-color: rgb(143, 143, 143);
             border-radius: 20px;
-            border: #b3c7ff;
+            border: rgb(143, 143, 143);
         }
     }
 

@@ -1,3 +1,4 @@
+import { ToggleTheme } from '@/shared/ui/ToggleTheme/ToggleTheme.tsx'
 import { useTranslation } from 'react-i18next'
 import { ToggleLanguage } from '@/shared/ui/ToggleLanguage/ToggleLanguage.tsx'
 import { CustomCalendar } from '@/entities'
@@ -25,7 +26,12 @@ const Calendar = ({ className }: CalendarProps) => {
                         {t('To-Do Лист')}
                     </div>
                 </div>
-                <ToggleLanguage />
+                <div
+                    className={classNames('Calendar__page-name__settings')}
+                >
+                    <ToggleTheme />
+                    <ToggleLanguage />
+                </div>
             </div>
             <CustomCalendar />
         </div>

@@ -1,8 +1,19 @@
 .App.dark {
-    --bg-color: #000639;
-    --inverted-bg-color: #e5e5ff;
-    --primary-color: #097e0a;
-    --secondary-color: #5fd330;
-    --inverted-primary-color: #042c9c;
-    --inverted-secondary-color: #2654f4;
+    --bg-color: rgba(21, 21, 21, 0.87);
+    --inverted-bg-color: #4c4c4c;
+
+    --primary-color: #7c7c7c;
+    --inverted-primary-color: rgba(57, 57, 57, 0.87);
+
+    --primary-event-color: rgba(223, 223, 223, 0.87);
+    --inverted-primary-event-color: rgba(28, 28, 28, 0.87);
+
+    --rbc-off-range-bg: #636363;
+    --inverted-rbc-off-range-bg: #f3f3f3;
+
+    --rbc-day-bg: #6e6e6e;
+    --inverted-rbc-day-bg: #404040;
+
+    --rbc-today: #b1b1b1;
+    --inverted-rbc-today: #e4e4e4;
 }

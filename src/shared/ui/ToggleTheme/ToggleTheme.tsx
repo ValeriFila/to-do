@@ -1,9 +1,10 @@
 import React from 'react'
-import DarkIcon from '../../assets/icons/theme-dark 1.svg'
-import LightIcon from '../../assets/icons/theme-light 1.svg'
-import { Theme, useTheme } from '@/app/providers/ThemeProvider'
-import { classNames } from '@/shared/lib/classNames/classNames.ts'
-import { Button, ThemeButton } from '@/shared/ui/Button/Button.tsx'
+import { CiDark } from "react-icons/ci";
+import { CiLight } from "react-icons/ci";
+import { useTheme } from '@/app/providers/ThemeProvider'
+import Theme from '@/shared/lib/types/themeType'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button, ThemeButton } from '@/shared/ui/Button/Button'
 
 interface ToggleThemeProps {
     className?: string
@@ -18,10 +19,16 @@ export const ToggleTheme = ({ className }: ToggleThemeProps) => {
             onClick={toggleTheme}
             className={classNames('', {}, [className!])}
         >
-            { theme === Theme.LIGHT ? ( 
-                <LightIcon /> 
+            { theme === Theme.WHITE ? (
+                <CiDark
+                    color={'var(--primary-event-color)'}
+                    size={'3rem'}
+                />
             ) : ( 
-                <DarkIcon />
+                <CiLight
+                    color={'var(--primary-event-color)'}
+                    size={'3rem'}
+                />
             )}
         </Button>
     )
