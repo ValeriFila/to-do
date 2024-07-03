@@ -10,13 +10,13 @@
     background-color: rgb(87, 119, 170);
     padding: 1rem;
     gap: 1rem;
-    color: white;
+    color: #000000;
     word-break: break-all;
 
     &__text {
         text-align: left;
-        font-size: 1.4rem;
-        color: white;
+        font: var(--font-m);
+        color: #000000;
         height: 100%;
 
 
@@ -41,10 +41,6 @@
             flex-direction: row;
             width: 100%;
             gap: 1rem;
-        }
-
-        &__date {
-            font-size: 1.2rem;
         }
     }
 }

@@ -27,7 +27,7 @@ export const CreationCard = (props: CreationCardProps) => {
                 onChange={onChange}
             />
             <div className='create-note__bottom-part'>
-                <p className='create-note__bottom-part__date'>{remaining}</p>
+                <p className='create-note__bottom-part__remaining'>{remaining}</p>
                 <Button
                     onClick={onClick}
                 >

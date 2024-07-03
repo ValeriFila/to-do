@@ -1,5 +1,5 @@
 import moment from 'moment/moment'
-import React, { useMemo } from 'react'
+import React, { memo, useCallback, useMemo } from 'react'
 import { useAppSelector } from '@/shared/lib/hooks'
 import { CreatedNote, NewNote } from '@/features'
 import './NotesSection.scss'
@@ -12,11 +12,11 @@ interface Note {
     fulfilled: boolean
 }
 
-export const NotesSection = () => {
+export const NotesSection = memo(() => {
     const notes  = useAppSelector((state) => state.notes.lsNotes)
     const date = useAppSelector((state) => state.date.date)
 
-    const getCurrentEvents = () => {
+    const getCurrentEvents = useCallback(() => {
         return Object.values(notes).reduce((accum: Record<number, Note>, item) => {
             if (moment(date).isBetween(item.start, item.end)) {
                 accum[item.id] = item
@@ -26,15 +26,13 @@ export const NotesSection = () => {
 
             return accum
         }, {})
-    }
+    }, [date, notes])
 
     const createdNotes = useMemo(() => {
         if (notes) {
             const arrayNotes: [string, Note][] = Object.entries(getCurrentEvents())
 
-            return arrayNotes.map((note, index) => {
-                const id = note[0]
-                const noteBody = note[1]
+            return arrayNotes.map(([id, noteBody], index) => {
 
                 return (
                     <CreatedNote
@@ -57,4 +55,4 @@ export const NotesSection = () => {
             </div>
         </div>
     )
-}
+})

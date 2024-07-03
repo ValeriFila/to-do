@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import { setNotes } from '../../model/notesSlice.ts'
 import { CreationCard } from '@/entities/CreationCard/CreationCard.tsx'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 
-export const NewNote = () => {
-    const date = useAppSelector((state) => state.date.date)
+export const NewNote = memo(() => {
     const dispatch = useAppDispatch()
+    const date = useAppSelector((state) => state.date.date)
     const notes = useAppSelector((state) => state.notes.lsNotes)
     const [note, setNote] = useState('')
     const [remain, setRemain] = useState(200)
-
-    useEffect(() => {
-        localStorage.setItem('notes', JSON.stringify(notes))
-    }, [dispatch, notes])
 
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (e.target.value.length <= 200) {
@@ -20,7 +16,7 @@ export const NewNote = () => {
             setRemain(200 - e.target.value.length)
         }
     }
-    const createNote = () => {
+    const createNote = useCallback(() => {
         if (note.trim().length > 0) {
             const id = Date.now()
             dispatch(setNotes({ ...notes,
@@ -35,7 +31,12 @@ export const NewNote = () => {
             setNote('')
             setRemain(200)
         }
-    }
+    }, [note, notes])
+
+    useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes))
+    }, [dispatch, notes, remain])
+
 
     return (
         <CreationCard
@@ -45,4 +46,4 @@ export const NewNote = () => {
             value={note}
         />
     )
-}
+})

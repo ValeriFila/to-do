@@ -1,50 +1,33 @@
-import moment from 'moment'
-import { classNames } from '@/shared/lib/classNames/classNames.ts'
-import './NoteModal.scss'
-import { Button } from '@/shared/ui/Button/Button.tsx'
-import { NotesSection } from '@/widgets/NotesSection/NotesSection.tsx'
+import React, { useRef } from 'react'
 import { IoMdClose } from 'react-icons/io'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import './NoteModal.scss'
+import { Button } from '@/shared/ui/Button/Button'
+import { NotesSection } from '@/widgets/NotesSection/NotesSection'
+import { CustomPopupWrapper } from '@/shared/ui/CustomPopupWrapper/CustomPopupWrapper'
 
 export interface NoteModalProps {
-    open: boolean,
-    notes: {
-        id: number
-        title: string
-        start: Date
-        end: Date
-    }[]
+    open: boolean
     onClose: () => void
-    slot: Date
 }
 
 export const NoteModal = (props: NoteModalProps) => {
     const {
         open,
-        notes,
         onClose,
-        slot
     } = props
-
-    const getCurrentEvents = () => {
-        return notes.reduce((accum: NoteModalProps['notes'], item) => {
-            if (moment(slot).isBetween(item.start, item.end)) {
-                accum.push(item)
-            } else if (new Date(item.start).toLocaleDateString() === new Date(slot).toLocaleDateString()) {
-                accum.push(item)
-            }
-
-            return accum
-        }, [])
-    }
+    const ref = useRef(null)
     
     return (
         <>
             {open && (
-                <div
-                    className={classNames('NoteModal')}
+                <CustomPopupWrapper
+                    onClose={onClose}
+                    innerElementRef={ref}
                 >
                     <div
                         className={classNames('NoteModal__custom-dialog')}
+                        ref={ref}
                     >
                         <div className={classNames('NoteModal__close-button')}>
                             <Button
@@ -58,7 +41,7 @@ export const NoteModal = (props: NoteModalProps) => {
                         </div>
                         <NotesSection />
                     </div>
-                </div>
+                </CustomPopupWrapper>
 
             )}
         </>

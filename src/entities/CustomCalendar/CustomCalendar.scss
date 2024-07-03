@@ -4,6 +4,15 @@
     width: 100%;
 }
 
+.rbc-header {
+    text-transform: uppercase;
+}
+
+.rbc-month-view {
+    border-radius: 15px;
+    background-color: white;
+}
+
 .rbc-calendar {
     font: var(--font-s);
 }

@@ -10,7 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string
     theme?: ThemeButton
     children?: React.ReactNode
-    onClick: () => void
+    onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Button = (props: ButtonProps) => {

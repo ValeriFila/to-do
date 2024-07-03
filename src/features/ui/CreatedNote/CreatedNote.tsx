@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { memo, useCallback } from 'react'
 import { setNotes } from '../../model/notesSlice.ts'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { CreatedNoteCard } from '@/entities/CreatedNoteCard/CreatedNoteCard.tsx'
@@ -8,7 +8,7 @@ interface CreatedNoteProps {
     title: string
 }
 
-export const CreatedNote = (props: CreatedNoteProps) => {
+export const CreatedNote = memo((props: CreatedNoteProps) => {
     const {
         id,
         title,
@@ -43,4 +43,4 @@ export const CreatedNote = (props: CreatedNoteProps) => {
             fulfilled={notes[id].fulfilled}
         />
     )
-}
+})
