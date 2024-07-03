@@ -32,7 +32,6 @@ export const CustomDayWrapper = (props: DateCellWrapperProps) => {
         <div className={classNames('rbc-day-bg', {
             rbcToday: rbcToday,
             isDayOff: isDayOff(),
-            // rbcOffRangeBg: false
         })}
         >
             
