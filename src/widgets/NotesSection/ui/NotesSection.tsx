@@ -7,8 +7,8 @@ import '@/widgets/NotesSection/ui/NotesSection.scss'
 interface Note {
     id: number
     title: string
-    start: string
-    end: string
+    start: Date
+    end: Date
     fulfilled: boolean
 }
 
@@ -37,7 +37,7 @@ export const NotesSection = memo(() => {
                 return (
                     <CreatedNote
                         key={`note_${index.toString()}`}
-                        id={id}
+                        id={+id}
                         title={noteBody.title}
                     />
                 )

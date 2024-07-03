@@ -1,7 +1,7 @@
 import React from 'react'
-import { CiDark } from "react-icons/ci";
-import { CiLight } from "react-icons/ci";
-import { useTheme } from '@/app/providers/ThemeProvider'
+import { CiDark } from 'react-icons/ci'
+import { CiLight } from 'react-icons/ci'
+import { useTheme } from '@/shared/lib/hooks'
 import Theme from '@/shared/lib/types/themeType'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ThemeButton } from '@/shared/ui/Button/Button'

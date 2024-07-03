@@ -1,11 +1,11 @@
-import { CustomToolbar } from '@/widgets/CustomToolbar'
-import { memo, useCallback, useEffect, useMemo, useState } from 'react'
-import { Calendar, momentLocalizer, ToolbarProps } from 'react-big-calendar'
-import moment from 'moment'
-import { setDate } from '@/features/model/dateToCreateNote'
-import { NoteModal } from '@/widgets/NoteModal'
+import { setDate } from '@/features/model/storeSlices/dateToCreateNoteSlice.ts'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import 'moment/locale/nb'
+import { CustomToolbar } from '@/widgets/CustomToolbar'
+import { NoteModal } from '@/widgets/NoteModal'
+import moment from 'moment'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import { Calendar, momentLocalizer, ToolbarProps } from 'react-big-calendar'
 import './CustomCalendar.scss'
 
 export const CustomCalendar = memo(() => {
@@ -31,11 +31,9 @@ export const CustomCalendar = memo(() => {
     }, [notes])
 
     const components = () => {
-        const component: { toolbar: any } = {
+        return {
             toolbar: (toolbar: ToolbarProps) => CustomToolbar(toolbar),
         }
-
-        return component
     }
 
     useEffect(() => {

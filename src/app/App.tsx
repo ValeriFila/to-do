@@ -1,11 +1,11 @@
 import React, { Suspense, useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import './styles/index.scss'
-import { setNotes } from '@/features/model/notesSlice.ts'
+import { setNotes } from '@/features/model/storeSlices/notesSlice.ts'
 import { useAppDispatch } from '@/shared/lib/hooks'
 import { PageLoader } from '@/widgets/PageLoader'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { useTheme } from '@/app/providers/ThemeProvider'
+import { useTheme } from '@/shared/lib/hooks'
 
 export const App = () => {
     const { theme } = useTheme()

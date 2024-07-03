@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useState } from 'react'
-import { setNotes } from '../../model/notesSlice.ts'
+import { setNotes } from '@/features/model/storeSlices/notesSlice.ts'
 import { CreationCard } from '@/entities/CreationCard/CreationCard.tsx'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 

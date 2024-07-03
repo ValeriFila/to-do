@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { IoLanguageOutline } from "react-icons/io5";
-import { setLanguage } from '@/features/model/switchLanguageSlice.ts'
+import { IoLanguageOutline } from 'react-icons/io5'
+import { setLanguage } from '@/features/model/storeSlices/switchLanguageSlice.ts'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button } from '@/shared/ui/Button/Button'

@@ -1,5 +1,5 @@
 import { memo, useCallback } from 'react'
-import { setNotes } from '../../model/notesSlice.ts'
+import { setNotes } from '@/features/model/storeSlices/notesSlice.ts'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { CreatedNoteCard } from '@/entities/CreatedNoteCard/CreatedNoteCard.tsx'
 

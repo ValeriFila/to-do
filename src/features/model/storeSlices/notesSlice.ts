@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 interface NotesState {
     id: number
     title: string
-    start: string
-    end: string
+    start: Date
+    end: Date
     fulfilled: boolean
 }
 

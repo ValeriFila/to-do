@@ -1,6 +1,6 @@
-import { setTheme } from '@/features/model/themeSlice'
+import { setTheme } from '@/features/model/storeSlices/themeSlice.ts'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
-import Theme from '@/shared/lib/types/themeType'
+import Theme from '@/shared/lib/types/themeType.ts'
 
 interface UseThemeResult {
     theme?: Theme
