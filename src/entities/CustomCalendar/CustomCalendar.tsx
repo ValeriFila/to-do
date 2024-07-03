@@ -1,4 +1,6 @@
+import { useFetchDaysOffQuery } from '@/features/model/apiSlices/isDayOffApi/isDayOffApi.ts'
 import { setDate } from '@/features/model/storeSlices/dateToCreateNoteSlice.ts'
+import { CustomDayWrapper } from '@/features/ui/CustomDayWrapper/CustomDayWrapper.tsx'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import 'moment/locale/nb'
 import { CustomToolbar } from '@/widgets/CustomToolbar'
@@ -33,6 +35,7 @@ export const CustomCalendar = memo(() => {
     const components = () => {
         return {
             toolbar: (toolbar: ToolbarProps) => CustomToolbar(toolbar),
+            dateCellWrapper: CustomDayWrapper
         }
     }
 

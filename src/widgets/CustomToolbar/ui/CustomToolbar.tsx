@@ -1,9 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import './CustomToolbar.scss'
-import { Button } from '@/shared/ui/Button/Button'
 import { ToolbarProps } from 'react-big-calendar'
-import { GrNext } from "react-icons/gr";
-import { GrPrevious } from "react-icons/gr";
+import { GrNext } from 'react-icons/gr'
+import { GrPrevious } from 'react-icons/gr'
+import { classNames } from '@/shared/lib/classNames/classNames.ts'
+import { Button } from '@/shared/ui/Button/Button'
 
 export const CustomToolbar = (toolbar: ToolbarProps) => {
     
