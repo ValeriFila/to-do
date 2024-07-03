@@ -60,7 +60,7 @@
 }
 
 .isDayOff {
-    background-color: rebeccapurple;
+    background-color: var(--rbc-off-range-bg);
 }
 
 .rbc-overlay-header {
@@ -68,5 +68,3 @@
     margin: -10px -10px 5px -10px;
     padding: 2px 10px;
 }
-
-

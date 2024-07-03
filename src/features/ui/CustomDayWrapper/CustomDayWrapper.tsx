@@ -6,7 +6,6 @@ import './CustomDayWrapper.scss'
 export const CustomDayWrapper = (props: DateCellWrapperProps) => {
     const {
         value,
-        range
     } = props
 
     const rbcToday = new Date(value).getDate().toString() +
@@ -23,7 +22,7 @@ export const CustomDayWrapper = (props: DateCellWrapperProps) => {
 
     const isDayOff = () => {
         const index = value.getDate() - 1
-        console.log(response)
+
         if (response.data) return response.data[index] !== '0'
 
         return false

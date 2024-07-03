@@ -1,4 +1,3 @@
-import { useFetchDaysOffQuery } from '@/features/model/apiSlices/isDayOffApi/isDayOffApi.ts'
 import { setDate } from '@/features/model/storeSlices/dateToCreateNoteSlice.ts'
 import { CustomDayWrapper } from '@/features/ui/CustomDayWrapper/CustomDayWrapper.tsx'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'

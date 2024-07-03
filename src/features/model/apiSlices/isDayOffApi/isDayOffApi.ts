@@ -10,7 +10,8 @@ const isDayOffApi = rtkApi.injectEndpoints({
         fetchDaysOff: build.query<string, IsDayOffParams>({
             query: ({ year, month }) => ({
                 method: 'GET',
-                url: `https://isdayoff.ru/api/getdata?year=${year}&month=${month}`
+                url: `https://isdayoff.ru/api/getdata?year=${year}&month=${month}`,
+                responseHandler: (response) => response.text(),
             }),
         }),
     }),
