@@ -5,7 +5,7 @@ import './CustomDayWrapper.scss'
 
 interface CustomDayWrapperProps extends DateCellWrapperProps {
     monthDaysStatus: string
-    datesRange: Map<string, string>
+    datesRange: Map<string, number>
 }
 
 export const CustomDayWrapper = (props: CustomDayWrapperProps) => {
@@ -20,7 +20,7 @@ export const CustomDayWrapper = (props: CustomDayWrapperProps) => {
     const isDayOff = () => {
         const index = datesRange.get(moment(value).format('YYYY-MM-DD'))!
 
-        if (monthDaysStatus) return monthDaysStatus[+index] !== '0'
+        if (monthDaysStatus) return monthDaysStatus[index] !== '0'
 
         return false
     }

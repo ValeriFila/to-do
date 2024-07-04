@@ -6,7 +6,7 @@ interface Range {
     type: moment.unitOfTime.Diff
 }
 
-export const getRange = (props: Range): Map<string, string> => {
+export const getRange = (props: Range): Map<string, number> => {
     const {
         startDate,
         endDate,
