@@ -1,4 +1,5 @@
 import { getRange } from '@/shared/lib/helpers/getRange.ts'
+import { PageLoader } from '@/widgets/PageLoader'
 import moment from 'moment'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { Calendar, DateCellWrapperProps, momentLocalizer, ToolbarProps } from 'react-big-calendar'
@@ -35,7 +36,7 @@ export const CustomCalendar = memo(() => {
         ]
     }, [actualDate])
 
-    const { data } = useFetchDaysOffQuery({
+    const { data, isFetching } = useFetchDaysOffQuery({
         date1: dates[0].format(format),
         date2: dates[1].format(format)
     })
@@ -44,7 +45,7 @@ export const CustomCalendar = memo(() => {
         setDetailedModal(true)
         setCurrentSlot(slot.slots)
         dispatch(setDate(slot.slots[0].toISOString()))
-    }, [isDetailedModal, currentSlot]) //?
+    }, [])
 
     const myEvents = useMemo(() => {
         if (notes) return Object.values(notes)
@@ -58,8 +59,6 @@ export const CustomCalendar = memo(() => {
             endDate: dates[1],
             type: 'day'
         })
-
-        console.log(range)
 
         return {
             toolbar: (toolbar: ToolbarProps) => CustomToolbar(toolbar),
@@ -77,6 +76,9 @@ export const CustomCalendar = memo(() => {
 
     return (
         <div className='calendar-body'>
+            {isFetching && (
+                <PageLoader className={'calendar-body__loader'}/>
+            )}
             <Calendar
                 selectable
                 localizer={localizer}

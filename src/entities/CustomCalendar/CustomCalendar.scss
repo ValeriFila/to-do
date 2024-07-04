@@ -2,6 +2,17 @@
 
 .calendar-body {
     width: 100%;
+    position: relative;
+
+    &__loader {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        z-index: 999;
+        width: 85svw;
+        height: var(--rbc-month-view-height);
+        backdrop-filter: blur(10px);
+    }
 }
 
 .rbc-header {
@@ -10,6 +21,7 @@
 
 .rbc-month-view {
     background-color: var(--bg-color);
+    height: var(--rbc-month-view-height);
 }
 
 .rbc-calendar {
