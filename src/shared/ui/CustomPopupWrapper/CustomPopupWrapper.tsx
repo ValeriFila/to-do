@@ -1,15 +1,15 @@
 import { MouseEvent, ReactNode, RefObject } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Portal } from '@/shared/ui/Portal/ui/Portal.tsx'
+import { Portal } from '@/shared/ui/Portal/Portal'
 import './CustomPopupWrapper.scss'
 
-interface CustomPopupWrapper {
+interface CustomPopupWrapperProps {
     onClose: () => void
     children: ReactNode
     innerElementRef: RefObject<HTMLDivElement>
 }
 
-export const CustomPopupWrapper = (props: CustomPopupWrapper) => {
+export const CustomPopupWrapper = (props: CustomPopupWrapperProps) => {
     const {
         onClose,
         children,

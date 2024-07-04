@@ -1,5 +1,7 @@
+import { getRange } from '@/shared/lib/helpers/getRange.ts'
 import moment from 'moment'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import { Calendar, DateCellWrapperProps, momentLocalizer, ToolbarProps } from 'react-big-calendar'
 import { useFetchDaysOffQuery } from '@/features/model/apiSlices/isDayOffApi/isDayOffApi.ts'
 import { setDate } from '@/features/model/storeSlices/dateToCreateNoteSlice.ts'
 import { CustomDayWrapper } from '@/features/ui/CustomDayWrapper/CustomDayWrapper.tsx'
@@ -7,7 +9,6 @@ import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import 'moment/locale/nb'
 import { CustomToolbar } from '@/widgets/CustomToolbar'
 import { NoteModal } from '@/widgets/NoteModal'
-import { Calendar, DateCellWrapperProps, momentLocalizer, ToolbarProps } from 'react-big-calendar'
 import './CustomCalendar.scss'
 
 export const CustomCalendar = memo(() => {
@@ -21,9 +22,22 @@ export const CustomCalendar = memo(() => {
     moment.locale(lng)
     const localizer = momentLocalizer(moment)
 
+    const format = 'YYYYMMDD'
+
+    const dates = useMemo(() => {
+        return [
+            moment(actualDate)
+                .subtract(1, 'months')
+                .set('date', 1),
+            moment(actualDate)
+                .add(1, 'months')
+                .endOf('month')
+        ]
+    }, [actualDate])
+
     const { data } = useFetchDaysOffQuery({
-        year: actualDate.getFullYear().toString(),
-        // month: (actualDate.getMonth() + 1).toString(),
+        date1: dates[0].format(format),
+        date2: dates[1].format(format)
     })
 
     const onSelectSlot = useCallback((slot: { action: string, slots: Date[] }) => {
@@ -42,7 +56,12 @@ export const CustomCalendar = memo(() => {
         return {
             toolbar: (toolbar: ToolbarProps) => CustomToolbar(toolbar),
             dateCellWrapper: (props: DateCellWrapperProps) => CustomDayWrapper({
-                monthDaysStatus: data,
+                monthDaysStatus: data!,
+                dates: getRange({
+                    startDate: dates[0],
+                    endDate: dates[1],
+                    type: 'day'
+                }),
                 ...props
             }),
         }

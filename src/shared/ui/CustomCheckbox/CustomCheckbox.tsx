@@ -1,6 +1,6 @@
+import React from 'react'
 import './CustomCheckbox.scss'
 import { classNames } from '@/shared/lib/classNames/classNames.ts'
-import React, { FC } from 'react'
 
 interface CheckboxProps {
     onChange: () => void;

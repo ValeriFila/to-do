@@ -4,24 +4,23 @@ import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import './CustomDayWrapper.scss'
 
 interface CustomDayWrapperProps extends DateCellWrapperProps {
-    monthDaysStatus?: string
+    monthDaysStatus: string
+    dates: Map<string, string>
 }
 
 export const CustomDayWrapper = (props: CustomDayWrapperProps) => {
     const {
         value,
-        monthDaysStatus
+        monthDaysStatus,
+        dates
     } = props
 
     const rbcToday = moment(value).isSame(new Date(), 'date')
 
     const isDayOff = () => {
-        const index = moment(value).dayOfYear() - 1
+        const index = dates.get(moment(value).format('YYYY-MM-DD'))!
 
-        if (monthDaysStatus) {
-
-            return monthDaysStatus[index] !== '0'
-        }
+        if (monthDaysStatus) return monthDaysStatus[+index] !== '0'
 
         return false
     }
@@ -31,8 +30,6 @@ export const CustomDayWrapper = (props: CustomDayWrapperProps) => {
             rbcToday: rbcToday,
             isDayOff: isDayOff(),
         })}
-        >
-
-        </div>
+        />
     )
 }
