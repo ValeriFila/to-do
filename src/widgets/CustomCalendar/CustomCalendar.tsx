@@ -11,7 +11,7 @@ import { CustomDayWrapper } from '@/features/ui/CustomDayWrapper/CustomDayWrappe
 import { PageLoader } from '@/widgets/PageLoader'
 import { CustomToolbar } from '@/widgets/CustomToolbar'
 import { NoteModal } from '@/widgets/NoteModal'
-import '@/widgets/CustomCalendar/CustomCalendar.scss'
+import './CustomCalendar.scss'
 
 export const CustomCalendar = memo(() => {
     const dispatch = useAppDispatch()
@@ -93,7 +93,6 @@ export const CustomCalendar = memo(() => {
                 }}
                 startAccessor='start'
                 endAccessor='end'
-                style={{ height: 600 }}
             />
             {isDetailedModal &&
                 <NoteModal

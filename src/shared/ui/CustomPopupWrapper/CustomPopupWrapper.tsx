@@ -1,3 +1,4 @@
+import React from 'react'
 import { MouseEvent, ReactNode, RefObject } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Portal } from '@/shared/ui/Portal/Portal'
