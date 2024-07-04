@@ -53,15 +53,19 @@ export const CustomCalendar = memo(() => {
     }, [notes])
 
     const components = () => {
+        const range = getRange({
+            startDate: dates[0],
+            endDate: dates[1],
+            type: 'day'
+        })
+
+        console.log(range)
+
         return {
             toolbar: (toolbar: ToolbarProps) => CustomToolbar(toolbar),
             dateCellWrapper: (props: DateCellWrapperProps) => CustomDayWrapper({
                 monthDaysStatus: data!,
-                dates: getRange({
-                    startDate: dates[0],
-                    endDate: dates[1],
-                    type: 'day'
-                }),
+                datesRange: range,
                 ...props
             }),
         }

@@ -5,20 +5,20 @@ import './CustomDayWrapper.scss'
 
 interface CustomDayWrapperProps extends DateCellWrapperProps {
     monthDaysStatus: string
-    dates: Map<string, string>
+    datesRange: Map<string, string>
 }
 
 export const CustomDayWrapper = (props: CustomDayWrapperProps) => {
     const {
         value,
         monthDaysStatus,
-        dates
+        datesRange
     } = props
 
     const rbcToday = moment(value).isSame(new Date(), 'date')
 
     const isDayOff = () => {
-        const index = dates.get(moment(value).format('YYYY-MM-DD'))!
+        const index = datesRange.get(moment(value).format('YYYY-MM-DD'))!
 
         if (monthDaysStatus) return monthDaysStatus[+index] !== '0'
 
