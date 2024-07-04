@@ -1,3 +1,4 @@
+import React from 'react'
 import './CreatedNoteCard.scss'
 import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import { Button } from '@/shared/ui/Button/Button'

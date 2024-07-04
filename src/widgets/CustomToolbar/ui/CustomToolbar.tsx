@@ -1,3 +1,4 @@
+import React from 'react'
 import './CustomToolbar.scss'
 import { ToolbarProps } from 'react-big-calendar'
 import { GrNext } from 'react-icons/gr'

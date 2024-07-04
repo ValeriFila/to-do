@@ -1,3 +1,4 @@
+import React from 'react'
 import { memo, useCallback } from 'react'
 import { setNotes } from '@/features/model/storeSlices/notesSlice.ts'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'

@@ -1,1 +1,1 @@
-export { CustomCalendar } from './CustomCalendar/CustomCalendar'
+export { CustomCalendar } from '@/widgets/CustomCalendar/CustomCalendar'

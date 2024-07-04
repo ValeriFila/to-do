@@ -1,16 +1,17 @@
-import { getRange } from '@/shared/lib/helpers/getRange.ts'
-import { PageLoader } from '@/widgets/PageLoader'
-import moment from 'moment'
+import React from 'react'
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+import moment from 'moment'
+import 'moment/locale/nb'
 import { Calendar, DateCellWrapperProps, momentLocalizer, ToolbarProps } from 'react-big-calendar'
+import { getRange } from '@/shared/lib/helpers/getRange.ts'
+import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { useFetchDaysOffQuery } from '@/features/model/apiSlices/isDayOffApi/isDayOffApi.ts'
 import { setDate } from '@/features/model/storeSlices/dateToCreateNoteSlice.ts'
 import { CustomDayWrapper } from '@/features/ui/CustomDayWrapper/CustomDayWrapper.tsx'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
-import 'moment/locale/nb'
+import { PageLoader } from '@/widgets/PageLoader'
 import { CustomToolbar } from '@/widgets/CustomToolbar'
 import { NoteModal } from '@/widgets/NoteModal'
-import './CustomCalendar.scss'
+import '@/widgets/CustomCalendar/CustomCalendar.scss'
 
 export const CustomCalendar = memo(() => {
     const dispatch = useAppDispatch()

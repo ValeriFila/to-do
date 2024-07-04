@@ -1,7 +1,7 @@
 import { ToggleTheme } from '@/shared/ui/ToggleTheme/ToggleTheme.tsx'
 import { useTranslation } from 'react-i18next'
 import { ToggleLanguage } from '@/shared/ui/ToggleLanguage/ToggleLanguage.tsx'
-import { CustomCalendar } from '@/entities'
+import { CustomCalendar } from '@/widgets/CustomCalendar/CustomCalendar'
 import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import './Calendar.scss'
 import CalendarIcon from '@/shared/assets/icons/calendar-svgrepo-com.svg'

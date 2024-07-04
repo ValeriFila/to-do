@@ -1,3 +1,4 @@
+import React from 'react'
 import moment from 'moment'
 import { DateCellWrapperProps } from 'react-big-calendar'
 import { classNames } from '@/shared/lib/classNames/classNames.ts'
@@ -26,10 +27,12 @@ export const CustomDayWrapper = (props: CustomDayWrapperProps) => {
     }
 
     return (
-        <div className={classNames('rbc-day-bg', {
-            rbcToday: rbcToday,
-            isDayOff: isDayOff(),
-        })}
+        <div
+            className={classNames('rbc-day-bg', {
+                rbcToday: rbcToday,
+                isDayOff: isDayOff(),
+            })}
+            data-testid='customDayWrapper'
         />
     )
 }

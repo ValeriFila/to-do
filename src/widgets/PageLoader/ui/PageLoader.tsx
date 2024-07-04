@@ -1,3 +1,4 @@
+import React from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames.ts'
 import './PageLoader.scss'
 

@@ -28,6 +28,7 @@ export const NoteModal = (props: NoteModalProps) => {
                     <div
                         className={classNames('NoteModal__custom-dialog')}
                         ref={ref}
+                        data-testid="note-modal"
                     >
                         <div className={classNames('NoteModal__close-button')}>
                             <Button
@@ -42,7 +43,6 @@ export const NoteModal = (props: NoteModalProps) => {
                         <NotesSection />
                     </div>
                 </CustomPopupWrapper>
-
             )}
         </>
     )
