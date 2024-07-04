@@ -44,9 +44,7 @@
     "lint:fix": "npx eslint --fix \"**/*.{js,jsx,ts,tsx}\"",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint --fix \"**/*.scss\"",
-    "unit": "jest -c ./config/jest/jest.config.ts",
-    "predeploy": "npm run build:dev",
-    "deploy": "gh-pages -d build"
+    "unit": "jest -c ./config/jest/jest.config.ts"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
@@ -82,7 +80,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-webpack-plugin": "^4.2.0",
     "file-loader": "^6.2.0",
-    "gh-pages": "^6.1.1",
     "globals": "^15.6.0",
     "html-webpack-plugin": "^5.6.0",
     "jest": "^29.7.0",
