@@ -10,7 +10,7 @@
         bottom: 0;
         z-index: 999;
         width: 85svw;
-        height: var(--rbc-month-view-height);
+        height: calc(var(--rbc-month-view-height) - var(--toolbar-height));
         backdrop-filter: blur(10px);
     }
 }

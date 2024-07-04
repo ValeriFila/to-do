@@ -42,3 +42,9 @@
         font-weight: bold;
     }
 }
+
+@media (height <= 500px) {
+    .Calendar {
+        gap: 1rem;
+    }
+}

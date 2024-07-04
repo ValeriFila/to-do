@@ -2,6 +2,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem 0;
+    height: var(--toolbar-height);
 
     &__navigate {
         display: flex;
@@ -19,5 +20,11 @@
             display: flex;
             gap: 1.5rem;;
         }
+    }
+}
+
+@media (width <= 420px) {
+    .CustomToolbar__navigate__label {
+        font: var(--font-m);
     }
 }
