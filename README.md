@@ -5,7 +5,7 @@
 3) Выполните команду `git clone https://github.com/ValeriFila/to-do`
 4) Выполните команду `cd to-do`
 5) Выполните команду `npm i`
-6) Выполните команду `npm.cmd run start:dev`
+6) Выполните команду `npm run start:dev`
 7) В браузере откроется окно с проектом, либо перейдите по ссылке http://localhost:3000
 
 
