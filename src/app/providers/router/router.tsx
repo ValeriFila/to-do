@@ -5,7 +5,7 @@ import {
     Calendar
 } from '@/pages'
 
-export const router = createBrowserRouter([ // хэш роутер был использован для gh pages
+export const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
